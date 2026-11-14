@@ -17,6 +17,13 @@ node src/cli.js listar
 node src/cli.js completar 1
 ```
 
+Para ver solo una parte de la lista:
+
+```bash
+node src/cli.js listar pendientes
+node src/cli.js listar completadas
+```
+
 Las tareas se guardan en `tareas.json`, en la carpeta desde donde ejecutas el comando.
 
 ## Pruebas
