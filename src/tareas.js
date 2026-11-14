@@ -21,3 +21,10 @@ export function completarTarea(lista, id) {
 export function listarTareas(lista) {
   return lista.map((t) => `${t.completada ? '[x]' : '[ ]'} ${t.id}. ${t.titulo}`);
 }
+
+export function filtrarTareas(lista, estado = 'todas') {
+  if (estado === 'todas') return lista;
+  if (estado === 'pendientes') return lista.filter((t) => !t.completada);
+  if (estado === 'completadas') return lista.filter((t) => t.completada);
+  throw new Error(`Estado desconocido: "${estado}". Usa pendientes, completadas o todas`);
+}
