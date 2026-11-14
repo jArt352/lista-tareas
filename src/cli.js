@@ -3,7 +3,7 @@
 // Las reglas de las tareas viven en tareas.js.
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
-import { completarTarea, crearTarea, listarTareas } from './tareas.js';
+import { completarTarea, crearTarea, filtrarTareas, listarTareas } from './tareas.js';
 
 const ARCHIVO = 'tareas.json';
 
@@ -30,12 +30,12 @@ try {
       break;
     }
     case 'listar': {
-      const lineas = listarTareas(cargar());
+      const lineas = listarTareas(filtrarTareas(cargar(), argumento));
       console.log(lineas.length > 0 ? lineas.join('\n') : 'No hay tareas.');
       break;
     }
     default:
-      console.log('Uso: node src/cli.js <agregar "título" | completar <id> | listar>');
+      console.log('Uso: node src/cli.js <agregar "título" | completar <id> | listar [pendientes|completadas]>');
   }
 } catch (error) {
   console.error(`Error: ${error.message}`);

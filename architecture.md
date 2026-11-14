@@ -1,7 +1,7 @@
 # architecture.md
 
 ## Partes
-- `src/tareas.js`: las reglas. Crear, completar y listar tareas.
+- `src/tareas.js`: las reglas. Crear, completar, listar y filtrar tareas.
 - `src/cli.js`: la entrada. Lee el comando, carga `tareas.json`, llama a las
   reglas, guarda y muestra el resultado.
 - `test/tareas.test.js`: pruebas de las reglas.
